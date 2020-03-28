@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:">
+   </FileRef>
+   <Group
+      location = "group:Source"
+      name = "Source">
+      <FileRef
+         location = "group:Config.swift">
+      </FileRef>
+      <Group
+         location = "group:Estimation"
+         name = "Estimation">
+         <FileRef
+            location = "group:EstimationError.swift">
+         </FileRef>
+         <FileRef
+            location = "group:EstimationFactory.swift">
+         </FileRef>
+         <FileRef
+            location = "group:EstimationStrategy.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Estimator.swift">
+         </FileRef>
+         <FileRef
+            location = "group:LocationEstimator.swift">
+         </FileRef>
+         <Group
+            location = "group:Strategies"
+            name = "Strategies">
+            <FileRef
+               location = "group:BarycentricEstimator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:HPSEstimator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:JainsEstimator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MaxValueEstimator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:QuadradicEstimator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:QuinnsFirstEstimator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:QuinnsSecondEstimator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:YINEstimator.swift">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:Library"
+         name = "Library">
+         <FileRef
+            location = "group:Buffer.swift">
+         </FileRef>
+         <Group
+            location = "group:Extensions"
+            name = "Extensions">
+            <FileRef
+               location = "group:Array+Extensions.swift">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:YINUtil.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:PitchEngine.swift">
+      </FileRef>
+      <Group
+         location = "group:SignalTracking"
+         name = "SignalTracking">
+         <FileRef
+            location = "group:SignalTracker.swift">
+         </FileRef>
+         <Group
+            location = "group:Units"
+            name = "Units">
+            <FileRef
+               location = "group:InputSignalTracker.swift">
+            </FileRef>
+            <FileRef
+               location = "group:OutputSignalTracker.swift">
+            </FileRef>
+            <FileRef
+               location = "group:SimulatorSignalTracker.swift">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:Transform"
+         name = "Transform">
+         <Group
+            location = "group:Strategies"
+            name = "Strategies">
+            <FileRef
+               location = "group:FFTTransformer.swift">
+            </FileRef>
+            <FileRef
+               location = "group:SimpleTransformer.swift">
+            </FileRef>
+            <FileRef
+               location = "group:YINTransformer.swift">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Transformer.swift">
+         </FileRef>
+      </Group>
+   </Group>
+</Workspace>

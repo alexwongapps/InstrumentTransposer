@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  InstrumentTransposer
+
+  Created by Alex Wong on 6/4/19.
+  Copyright © 2019 Kids Can Code. All rights reserved.
+*/
+
+NSMicrophoneUsageDescription = "InsTranspose needs the microphone to detect pitch.";
+NSCameraUsageDescription = "InsTranspose requires the camera.";

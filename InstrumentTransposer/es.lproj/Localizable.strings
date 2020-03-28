@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  InstrumentTransposer
+
+  Created by Alex Wong on 8/18/18.
+  Copyright © 2018 Kids Can Code. All rights reserved.
+*/
+
+"transposeByInstrument" = "Transportar por instrumento";
+"to" = "a";
+"transposeByKey" = "Transportar por tono";
+"version" = "InsTranspose Versión ";
+"tuner" = "Afinador";
+"playANote" = "";

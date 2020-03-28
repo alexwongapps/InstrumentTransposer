@@ -1,0 +1,75 @@
+
+/* Class = "UILabel"; text = "to"; ObjectID = "6S7-od-8gD"; */
+"6S7-od-8gD.text" = "a";
+
+/* Class = "UIViewController"; title = "Key"; ObjectID = "8rJ-Kc-sve"; */
+"8rJ-Kc-sve.title" = "Key";
+
+/* Class = "UIViewController"; title = "Instrument"; ObjectID = "9pv-A4-QxB"; */
+"9pv-A4-QxB.title" = "Instrument";
+
+/* Class = "UILabel"; text = "InsTransposer Version"; ObjectID = "AMd-EU-9Y8"; */
+"AMd-EU-9Y8.text" = "InsTransposer Version";
+
+/* Class = "UILabel"; text = "Scroll to select the instruments you are transposing"; ObjectID = "FGA-p9-OdW"; */
+"FGA-p9-OdW.text" = "Desplácese para elegir los instrumentos";
+
+/* Class = "UILabel"; text = "Red"; ObjectID = "I6f-jP-nog"; */
+"I6f-jP-nog.text" = "Rojo";
+
+/* Class = "UILabel"; text = "Blue"; ObjectID = "PgL-iX-7QD"; */
+"PgL-iX-7QD.text" = "Azul";
+
+/* Class = "UIButton"; normalTitle = "Set Color"; ObjectID = "Ro5-I3-0xx"; */
+"Ro5-I3-0xx.normalTitle" = "Asignar color";
+
+/* Class = "UILabel"; text = "Common Colors"; ObjectID = "XSP-xb-9xe"; */
+"XSP-xb-9xe.text" = "Colores comunes";
+
+/* Class = "UIButton"; normalTitle = "Background Color 2"; ObjectID = "Y8r-fe-Kcv"; */
+"Y8r-fe-Kcv.normalTitle" = "Fondo: Color 2";
+
+/* Class = "UILabel"; text = "to"; ObjectID = "YgX-RD-Pgs"; */
+"YgX-RD-Pgs.text" = "a";
+
+/* Class = "UITabBarItem"; title = "Instrument"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Instrumento";
+
+/* Class = "UITabBarItem"; title = "Key"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Tono";
+
+/* Class = "UILabel"; text = "Tap to begin"; ObjectID = "d3p-0Z-zxo"; */
+"d3p-0Z-zxo.text" = "Haga clic para comenzar";
+
+/* Class = "UINavigationController"; title = "Settings"; ObjectID = "fed-b2-3H1"; */
+"fed-b2-3H1.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Table Color 1"; ObjectID = "fqt-8n-RjK"; */
+"fqt-8n-RjK.normalTitle" = "Tabla: Color 1";
+
+/* Class = "UIButton"; normalTitle = "Background Color 1"; ObjectID = "m2N-su-Ayv"; */
+"m2N-su-Ayv.normalTitle" = "Fondo: Color 1";
+
+/* Class = "UIButton"; normalTitle = "Table Color 2"; ObjectID = "r27-Xb-S0A"; */
+"r27-Xb-S0A.normalTitle" = "Tabla: Color 2";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "rap-ae-mCN"; */
+"rap-ae-mCN.title" = "Configuración";
+
+/* Class = "UILabel"; text = "Transpose by Key"; ObjectID = "req-Kx-fCS"; */
+"req-Kx-fCS.text" = "Transportar por tono";
+
+/* Class = "UILabel"; text = "Green"; ObjectID = "tVX-s4-WYi"; */
+"tVX-s4-WYi.text" = "Verde";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "uba-Ey-wjF"; */
+"uba-Ey-wjF.title" = "Configuración";
+
+/* Class = "UILabel"; text = "Edit App Colors"; ObjectID = "vKL-TQ-RUj"; */
+"vKL-TQ-RUj.text" = "Editar colores";
+
+/* Class = "UILabel"; text = "Transpose by Instrument"; ObjectID = "yqq-C5-P7j"; */
+"yqq-C5-P7j.text" = "Transportar por instrumento";
+
+/* Class = "UITabBarItem"; title = "Tuner"; ObjectID = "PKT-ph-UYm"; */
+"PKT-ph-UYm.title" = "Afinador";
