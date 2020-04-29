@@ -69,6 +69,7 @@
 /* Begin PBXFileReference section */
 		571103DD22A6E76B0051BE95 /* TunerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerViewController.swift; sourceTree = "<group>"; };
 		5734EECA21D060DA0037D21D /* CustomInstrumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInstrumentsViewController.swift; sourceTree = "<group>"; };
+		5739D5072459FC8B0043BD07 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5749879F211CF3C600E78B09 /* InstrumentTransposer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstrumentTransposer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574987A2211CF3C600E78B09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		574987A4211CF3C600E78B09 /* InstrumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		57498796211CF3C600E78B09 = {
 			isa = PBXGroup;
 			children = (
+				5739D5072459FC8B0043BD07 /* README.md */,
 				574987A1211CF3C600E78B09 /* InstrumentTransposer */,
 				574987B8211CF3C700E78B09 /* InstrumentTransposerTests */,
 				574987A0211CF3C600E78B09 /* Products */,
