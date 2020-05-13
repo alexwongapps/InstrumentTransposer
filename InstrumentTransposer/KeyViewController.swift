@@ -22,11 +22,20 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var fromTableView: UITableView!
     @IBOutlet weak var toTableView: UITableView!
     @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var favorite1Button: UIButton!
+    @IBOutlet weak var favorite2Button: UIButton!
+    @IBOutlet weak var favorite3Button: UIButton!
     
     var tableViewRuntimeHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         
         // localization
         
@@ -39,6 +48,15 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let attributedText2 = NSMutableAttributedString(string: toText)
         toLabel!.attributedText = attributedText2
         makeAdjustableFont(label: toLabel)
+        
+        // favorites
+        
+        favorite1Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        favorite2Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        favorite3Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        favorite1Button.titleLabel?.baselineAdjustment = .alignCenters
+        favorite2Button.titleLabel?.baselineAdjustment = .alignCenters
+        favorite3Button.titleLabel?.baselineAdjustment = .alignCenters
         
         // other
         
@@ -79,6 +97,8 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         fromTableView.reloadData()
         toTableView.reloadData()
+        
+        updateFavorites()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -168,6 +188,31 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return tableViewRuntimeHeight / CGFloat(notes.count)
     }
     
+    // todo: review prompting
+    
+    // MARK: favorites
+    
+    @IBAction func saveFavorite(_ sender: UIButton) {
+        if sender.titleLabel?.text == "Save Favorite" {
+            if !proPaid {
+                self.present(createBasicAlert(title: "PRO Feature", message: "Purchase PRO from the Settings tab to save favorites!"), animated: true)
+            } else {
+                UserDefaults.standard.set(notes[fromPickerView.selectedRow(inComponent: 0)], forKey: "key\(sender.tag + 1)From")
+                UserDefaults.standard.set(notes[toPickerView.selectedRow(inComponent: 0)], forKey: "key\(sender.tag + 1)To")
+                updateFavorites()
+            }
+        } else {
+            let from = notes.firstIndex(of: UserDefaults.standard.string(forKey: "key\(sender.tag + 1)From")!)!
+            let to = notes.firstIndex(of: UserDefaults.standard.string(forKey: "key\(sender.tag + 1)To")!)!
+            fromPickerView.selectRow(from, inComponent: 0, animated: true)
+            toPickerView.selectRow(to, inComponent: 0, animated: true)
+            fromKey = Key(rawValue: from)
+            toKey = Key(rawValue: to)
+            fromTableView.reloadData()
+            toTableView.reloadData()
+        }
+    }
+    
     func setBackground() -> Bool {
         let alreadyLaunched = UserDefaults.standard.bool(forKey: "setBackground")
         if alreadyLaunched {
@@ -175,6 +220,40 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else {
             UserDefaults.standard.set(true, forKey: "setBackground")
             return true
+        }
+    }
+    
+    func getFavorites() -> [String] {
+        return [UserDefaults.standard.string(forKey: "key1From")!,
+                UserDefaults.standard.string(forKey: "key1To")!,
+                UserDefaults.standard.string(forKey: "key2From")!,
+                UserDefaults.standard.string(forKey: "key2To")!,
+                UserDefaults.standard.string(forKey: "key3From")!,
+                UserDefaults.standard.string(forKey: "key3To")!]
+    }
+    
+    func updateFavorites() {
+        let favorites = getFavorites()
+        if favorites[0] != "" && favorites[1] != "" {
+            favorite1Button.setTitle("\(favorites[0]) to \(favorites[1])", for: .normal)
+            favorite1Button.setTitle("\(favorites[0]) to \(favorites[1])", for: .selected)
+        } else {
+            favorite1Button.setTitle("Save Favorite", for: .normal)
+            favorite1Button.setTitle("Save Favorite", for: .selected)
+        }
+        if favorites[2] != "" && favorites[3] != "" {
+            favorite2Button.setTitle("\(favorites[2]) to \(favorites[3])", for: .normal)
+            favorite2Button.setTitle("\(favorites[2]) to \(favorites[3])", for: .selected)
+        } else {
+            favorite2Button.setTitle("Save Favorite", for: .normal)
+            favorite2Button.setTitle("Save Favorite", for: .selected)
+        }
+        if favorites[4] != "" && favorites[5] != "" {
+            favorite3Button.setTitle("\(favorites[4]) to \(favorites[5])", for: .normal)
+            favorite3Button.setTitle("\(favorites[4]) to \(favorites[5])", for: .selected)
+        } else {
+            favorite3Button.setTitle("Save Favorite", for: .normal)
+            favorite3Button.setTitle("Save Favorite", for: .selected)
         }
     }
     

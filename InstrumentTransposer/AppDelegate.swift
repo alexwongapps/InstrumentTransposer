@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: appFont, size: 20)!], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: appFont, size: hasTraits(view: (self.window?.rootViewController?.view)!, width: .regular, height: .regular) ? 20 : 12)!], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: appFont, size: hasTraits(view: (self.window?.rootViewController?.view)!, width: .regular, height: .regular) ? 20 : 12)!], for: .selected)
+        
+        let keychain = KeychainSwift()
+        keychain.accessGroup = "H5H633W272.InstrumentTransposer"
+        if let pP = keychain.getBool("proPaid") {
+            proPaid = pP
+        }
+        
+        UserDefaults.standard.register(defaults: [
+            "key1From": "",
+            "key1To": "",
+            "key2From": "",
+            "key2To": "",
+            "key3From": "",
+            "key3To": "",
+            "instrument1From": "",
+            "instrument1To": "",
+            "instrument2From": "",
+            "instrument2To": "",
+            "instrument3From": "",
+            "instrument3To": ""
+        ])
         
         return true
     }
@@ -43,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        IAPManager.shared.stopObserving()
     }
 
 

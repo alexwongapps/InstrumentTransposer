@@ -89,11 +89,20 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var fromTableView: UITableView!
     @IBOutlet weak var toTableView: UITableView!
     @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var favorite1Button: UIButton!
+    @IBOutlet weak var favorite2Button: UIButton!
+    @IBOutlet weak var favorite3Button: UIButton!
     
     var tableViewRuntimeHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         
         // get instruments in language
         
@@ -133,6 +142,15 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         default:
             print("English")
         }
+        
+        // favorites
+        
+        favorite1Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        favorite2Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        favorite3Button.titleLabel?.adjustsFontSizeToFitWidth = true
+        favorite1Button.titleLabel?.baselineAdjustment = .alignCenters
+        favorite2Button.titleLabel?.baselineAdjustment = .alignCenters
+        favorite3Button.titleLabel?.baselineAdjustment = .alignCenters
         
         // localization
         
@@ -209,6 +227,8 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         
         fromTableView.reloadData()
         toTableView.reloadData()
+        
+        updateFavorites()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -385,6 +405,63 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             UserDefaults.standard.set(true, forKey: "setBackground")
             return true
+        }
+    }
+    
+    // MARK: favorites
+    
+    func getFavorites() -> [String] {
+        return [UserDefaults.standard.string(forKey: "instrument1From")!,
+                UserDefaults.standard.string(forKey: "instrument1To")!,
+                UserDefaults.standard.string(forKey: "instrument2From")!,
+                UserDefaults.standard.string(forKey: "instrument2To")!,
+                UserDefaults.standard.string(forKey: "instrument3From")!,
+                UserDefaults.standard.string(forKey: "instrument3To")!]
+    }
+    
+    func updateFavorites() {
+        let favorites = getFavorites()
+        if favorites[0] != "" && favorites[1] != "" {
+            favorite1Button.setTitle("\(favorites[0]) to \(favorites[1])", for: .normal)
+            favorite1Button.setTitle("\(favorites[0]) to \(favorites[1])", for: .selected)
+        } else {
+            favorite1Button.setTitle("Save Favorite", for: .normal)
+            favorite1Button.setTitle("Save Favorite", for: .selected)
+        }
+        if favorites[2] != "" && favorites[3] != "" {
+            favorite2Button.setTitle("\(favorites[2]) to \(favorites[3])", for: .normal)
+            favorite2Button.setTitle("\(favorites[2]) to \(favorites[3])", for: .selected)
+        } else {
+            favorite2Button.setTitle("Save Favorite", for: .normal)
+            favorite2Button.setTitle("Save Favorite", for: .selected)
+        }
+        if favorites[4] != "" && favorites[5] != "" {
+            favorite3Button.setTitle("\(favorites[4]) to \(favorites[5])", for: .normal)
+            favorite3Button.setTitle("\(favorites[4]) to \(favorites[5])", for: .selected)
+        } else {
+            favorite3Button.setTitle("Save Favorite", for: .normal)
+            favorite3Button.setTitle("Save Favorite", for: .selected)
+        }
+    }
+    
+    @IBAction func saveFavorite(_ sender: UIButton) {
+        if sender.titleLabel?.text == "Save Favorite" {
+            if !proPaid {
+                self.present(createBasicAlert(title: "PRO Feature", message: "Purchase PRO from the Settings tab to save favorites!"), animated: true)
+            } else {
+                UserDefaults.standard.set(instruments[fromPickerView.selectedRow(inComponent: 0)].description, forKey: "instrument\(sender.tag + 1)From")
+                UserDefaults.standard.set(instruments[toPickerView.selectedRow(inComponent: 0)].description, forKey: "instrument\(sender.tag + 1)To")
+                updateFavorites()
+            }
+        } else {
+            let from = instruments.firstIndex { $0.description == UserDefaults.standard.string(forKey: "instrument\(sender.tag + 1)From")! }
+            let to = instruments.firstIndex { $0.description == UserDefaults.standard.string(forKey: "instrument\(sender.tag + 1)To")! }
+            fromPickerView.selectRow(from!, inComponent: 0, animated: true)
+            toPickerView.selectRow(to!, inComponent: 0, animated: true)
+            fromInstrument = instruments[from!]
+            toInstrument = instruments[to!]
+            fromTableView.reloadData()
+            toTableView.reloadData()
         }
     }
     

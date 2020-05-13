@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomInstrumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    // todo: spanish
     var gradientLayer: CAGradientLayer!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var instrumentTextField: UITextField!
@@ -20,6 +20,12 @@ class CustomInstrumentsViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +55,10 @@ class CustomInstrumentsViewController: UIViewController, UITableViewDelegate, UI
             alpha: 1)
         
         instruments = getCustomInstruments()
+        
+        instrumentTextField.backgroundColor = .clear
+        instrumentTextField.layer.borderColor = UIColor.black.cgColor
+        instrumentsTableView.backgroundColor = .clear
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +86,8 @@ class CustomInstrumentsViewController: UIViewController, UITableViewDelegate, UI
             
             setCustomInstruments(instruments: instruments)
             instrumentsTableView.reloadData()
+        } else {
+            self.present(createBasicAlert(title: "Enter instrument name", message: "Enter the instrument name and select the key of the instrument, then press Add"), animated: true)
         }
     }
     
@@ -89,6 +101,7 @@ class CustomInstrumentsViewController: UIViewController, UITableViewDelegate, UI
         let cell = UITableViewCell(style: .default, reuseIdentifier: "customInstrumentCell")
         cell.textLabel?.text = "\(instruments[indexPath.row].name) (\(instruments[indexPath.row].key.description))"
         cell.textLabel?.font = UIFont(name: appFont, size: smallDevice() ? 15 : hasTraits(view: self.view, width: .regular, height: .regular) ? 25 : 17)
+        cell.backgroundColor = .clear
         
         return(cell)
     }

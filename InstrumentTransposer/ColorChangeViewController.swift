@@ -40,6 +40,12 @@ class ColorChangeViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
+        
         // localization
         
         switch Locale.current.languageCode {
@@ -88,8 +94,9 @@ class ColorChangeViewController: UIViewController, UITableViewDelegate, UITableV
         blueSlider.value = Float(b)
         self.view.backgroundColor = currentColor
     
-        self.commonColorsTableView.layer.cornerRadius = 10
-        self.commonColorsTableView.layer.masksToBounds = true
+        commonColorsTableView.layer.cornerRadius = 10
+        commonColorsTableView.layer.masksToBounds = true
+        commonColorsTableView.backgroundColor = .clear
     }
     
     @IBAction func colorChanged(_ sender: Any) {
@@ -142,6 +149,7 @@ class ColorChangeViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = UITableViewCell(style: .default, reuseIdentifier: "colorCell")
         cell.textLabel?.text = colorNames[commonColors[indexPath.row]]
         cell.textLabel?.font = UIFont(name: appFont, size: 17)
+        cell.backgroundColor = .clear
         return cell
     }
     
