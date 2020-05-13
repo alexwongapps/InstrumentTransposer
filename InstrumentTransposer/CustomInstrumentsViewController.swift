@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomInstrumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    // todo: spanish
+
     var gradientLayer: CAGradientLayer!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var instrumentTextField: UITextField!

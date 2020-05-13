@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 let appFont = "Bodoni 72"
 
@@ -164,6 +165,20 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         toLabel!.attributedText = attributedText2
         makeAdjustableFont(label: toLabel)
         
+        // reviews
+        
+        let timesOpened = UserDefaults.standard.integer(forKey: "timesOpened") + 1
+        UserDefaults.standard.set(timesOpened, forKey: "timesOpened")
+        
+        if !UserDefaults.standard.bool(forKey: "hasAskedForReview") {
+            if timesOpened >= 5 {
+                if #available(iOS 10.3, *) {
+                    SKStoreReviewController.requestReview()
+                    UserDefaults.standard.set(true, forKey: "hasAskedForReview")
+                }
+            }
+        }
+        
         // other
         
         instruments.removeAll()
@@ -183,9 +198,6 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         toInstrument = instruments[0]
         
         toLabel.font = UIFont(name: appFont, size: smallDevice() ? 17 : 25)
-        
-        // UserDefaults.standard.set(false, forKey: "alreadyLaunched")
-        // UserDefaults.standard.set(false, forKey: "setBackground")
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -188,8 +188,6 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return tableViewRuntimeHeight / CGFloat(notes.count)
     }
     
-    // todo: review prompting
-    
     // MARK: favorites
     
     @IBAction func saveFavorite(_ sender: UIButton) {

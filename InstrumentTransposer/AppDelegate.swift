@@ -39,7 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "instrument2From": "",
             "instrument2To": "",
             "instrument3From": "",
-            "instrument3To": ""
+            "instrument3To": "",
+            "hasAskedForReview": false,
+            "timesOpened": 0
         ])
         
         return true

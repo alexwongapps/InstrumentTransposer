@@ -27,8 +27,10 @@ class TunerViewController: UIViewController, PitchEngineDelegate, UIPickerViewDa
     @IBOutlet weak var instrument1Label: UILabel!
     @IBOutlet weak var instrument2PickerView: UIPickerView!
     @IBOutlet weak var instrument2Label: UILabel!
+    @IBOutlet weak var barView: UIView!
     
     var centerConstraint: NSLayoutConstraint?
+    var barCenterConstraint: NSLayoutConstraint?
     
     var instrument1: Instrument?
     var instrument2: Instrument?
@@ -70,9 +72,9 @@ class TunerViewController: UIViewController, PitchEngineDelegate, UIPickerViewDa
         centsLabel.text = ""
         centsLabel.backgroundColor = .clear
         centsLabel.layer.masksToBounds = true
-        centsLabel.layer.cornerRadius = 10
         instrument1Label.text = ""
         instrument2Label.text = ""
+        barView.backgroundColor = .clear
         
         // picker view
         
@@ -192,22 +194,32 @@ class TunerViewController: UIViewController, PitchEngineDelegate, UIPickerViewDa
             
             let cents = round(number: pitch.closestOffset.cents, places: 1)
             
+            var barColor = UIColor.clear
+            
             if abs(cents) < 10.0 {
-                centsLabel.backgroundColor = UIColor(red: 0, green: 0.7, blue: 0, alpha: 1)
+                barColor = UIColor(red: 0, green: 0.7, blue: 0, alpha: 1)
                 centsLabel.text = "  \(cents)  "
             } else if abs(cents) < 20.0 {
-                centsLabel.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0, alpha: 1)
+                barColor = UIColor(red: 0.8, green: 0.8, blue: 0, alpha: 1)
                 centsLabel.text = " \(cents) "
             } else {
-                centsLabel.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1)
+                barColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1)
                 centsLabel.text = " \(cents) "
             }
+            
+            barView.backgroundColor = barColor
             
             if let constraint = centerConstraint {
                 centsLabel.superview!.removeConstraint(constraint)
             }
             centerConstraint = NSLayoutConstraint(item: centsLabel.superview!, attribute: .centerX, relatedBy: .equal, toItem: centsLabel!, attribute: .centerX, multiplier: 1, constant: -(CGFloat(cents) * 2))
             centsLabel.superview!.addConstraint(centerConstraint!)
+            
+            if let barConstraint = barCenterConstraint {
+                barView.superview!.removeConstraint(barConstraint)
+            }
+            barCenterConstraint = NSLayoutConstraint(item: barView.superview!, attribute: .centerX, relatedBy: .equal, toItem: barView, attribute: .centerX, multiplier: 1, constant: -(CGFloat(cents) * 2))
+            barView.superview!.addConstraint(centerConstraint!)
             
             switch(pitchQueue[0]) {
                 

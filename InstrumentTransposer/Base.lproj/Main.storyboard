@@ -421,7 +421,7 @@
                 <navigationController title="Settings" id="fed-b2-3H1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="uba-Ey-wjF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HmX-lS-6nl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -470,13 +470,25 @@
                                     <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="140"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARQ-jE-633">
-                                <rect key="frame" x="117.5" y="175.5" width="85" height="49"/>
-                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="40"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZP-ff-wif">
+                                <rect key="frame" x="40" y="180.5" width="240" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2wq-Qj-lHZ">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="10" id="eEy-UW-lle">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARQ-jE-633">
+                                <rect key="frame" x="117.5" y="195" width="85" height="30.5"/>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="80"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="50"/>
                                 </variation>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddh-8v-DMN">
@@ -522,6 +534,8 @@
                         <constraints>
                             <constraint firstItem="eMa-fn-76T" firstAttribute="centerY" secondItem="UCh-bz-veV" secondAttribute="centerY" id="0VF-Gi-6io"/>
                             <constraint firstItem="Zvt-ar-K30" firstAttribute="top" secondItem="Hh7-5i-ngx" secondAttribute="bottom" id="18b-EF-eqt"/>
+                            <constraint firstItem="ARQ-jE-633" firstAttribute="centerY" secondItem="qZP-ff-wif" secondAttribute="centerY" id="2B7-1Z-Beb"/>
+                            <constraint firstItem="ARQ-jE-633" firstAttribute="centerX" secondItem="qZP-ff-wif" secondAttribute="centerX" id="4RS-cd-qOZ"/>
                             <constraint firstItem="ddh-8v-DMN" firstAttribute="top" secondItem="Zvt-ar-K30" secondAttribute="bottom" id="4tD-8y-68E"/>
                             <constraint firstItem="QD0-E1-rWC" firstAttribute="trailing" secondItem="LRu-5l-gs2" secondAttribute="trailing" id="54N-G4-J8Q"/>
                             <constraint firstItem="txY-xP-ifl" firstAttribute="trailing" secondItem="ddh-8v-DMN" secondAttribute="trailing" id="58k-XZ-bxe"/>
@@ -548,8 +562,8 @@
                             <constraint firstItem="txY-xP-ifl" firstAttribute="top" secondItem="l1n-Bq-2fX" secondAttribute="top" id="aTN-Gs-4b7"/>
                             <constraint firstItem="8Fs-fd-6Fo" firstAttribute="centerX" secondItem="l1n-Bq-2fX" secondAttribute="centerX" id="bdD-Gk-w5S"/>
                             <constraint firstItem="LRu-5l-gs2" firstAttribute="leading" secondItem="QD0-E1-rWC" secondAttribute="leading" id="cfF-wG-N0Y"/>
-                            <constraint firstItem="ARQ-jE-633" firstAttribute="centerY" secondItem="Zvt-ar-K30" secondAttribute="centerY" constant="49.75" id="dhc-wa-nxN">
-                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            <constraint firstItem="ARQ-jE-633" firstAttribute="centerY" secondItem="Zvt-ar-K30" secondAttribute="centerY" constant="60" id="dhc-wa-nxN">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                             </constraint>
                             <constraint firstItem="QD0-E1-rWC" firstAttribute="bottom" secondItem="LRu-5l-gs2" secondAttribute="bottom" id="f4b-qC-rNx"/>
                             <constraint firstItem="8Fs-fd-6Fo" firstAttribute="centerY" secondItem="Zvt-ar-K30" secondAttribute="centerY" constant="-30" id="fxT-es-yCQ">
@@ -564,6 +578,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tuner" image="Tuning" selectedImage="Tuning" id="PKT-ph-UYm"/>
                     <connections>
+                        <outlet property="barView" destination="qZP-ff-wif" id="fAr-zv-27C"/>
                         <outlet property="centsLabel" destination="ARQ-jE-633" id="48Q-2H-Ggz"/>
                         <outlet property="gradientView" destination="LRu-5l-gs2" id="keR-M6-Zev"/>
                         <outlet property="instrument1Label" destination="JbU-x1-naC" id="22N-6p-AdU"/>
