@@ -22,7 +22,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var proFeaturesLabel: UILabel!
     @IBOutlet weak var customInstrumentsButton: UIButton!
-    
+    @IBOutlet weak var deleteFavoriteButton: UIButton!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -226,6 +227,10 @@ class SettingsViewController: UIViewController {
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true)
+            
+            if let popover = alert.popoverPresentationController {
+                popover.sourceView = deleteFavoriteButton
+            }
         } else {
             self.present(createBasicAlert(title: "PRO Feature", message: "Get PRO to save favorites!"), animated: true)
         }

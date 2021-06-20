@@ -14,6 +14,8 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var fromKey: Key?
     var toKey: Key?
+    
+    var scale = Scale.MAJOR
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var gradientView: UIView!
@@ -25,6 +27,7 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var favorite1Button: UIButton!
     @IBOutlet weak var favorite2Button: UIButton!
     @IBOutlet weak var favorite3Button: UIButton!
+    @IBOutlet weak var scaleButton: UIButton!
     
     var tableViewRuntimeHeight: CGFloat = 0
     
@@ -148,6 +151,33 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return hasTraits(view: self.view, width: .regular, height: .regular) ? 30 : 25
     }
     
+    // MARK: scale
+    
+    @IBAction func selectScale(_ sender: Any) {
+        let alert = UIAlertController(title: "Select Scale", message: nil, preferredStyle: .alert)
+        for s in Scale.allScales() {
+            alert.addAction(UIAlertAction(title: Scale.toString(s), style: .default, handler: { (action) in
+                self.scale = s
+                self.fromTableView.reloadData()
+                self.toTableView.reloadData()
+                
+                if s == Scale.NONE {
+                    self.scaleButton.setTitle("Coloring: No Scale", for: .normal)
+                    self.scaleButton.setTitle("Coloring: No Scale", for: .selected)
+                } else {
+                    self.scaleButton.setTitle("Coloring: \(Scale.toString(s)) Scale", for: .normal)
+                    self.scaleButton.setTitle("Coloring: \(Scale.toString(s)) Scale", for: .selected)
+                }
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "Back", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = scaleButton
+        }
+    }
+    
     // MARK: table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -165,7 +195,7 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell?.textLabel?.text = notes[(indexPath.row + (toKey?.rawValue)!) % notes.count]
         }
         
-        if indexPath.row % 2 == 0 {
+        if scale.contains(indexPath.row) {
             cell?.backgroundColor = tableColor1
         } else {
             cell?.backgroundColor = tableColor2

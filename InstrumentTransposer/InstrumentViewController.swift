@@ -81,6 +81,8 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
     var fromInstrument: Instrument?
     var toInstrument: Instrument?
     
+    var scale = Scale.MAJOR
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pickerViewsView: UIView!
     @IBOutlet weak var helpView: UIView!
@@ -93,6 +95,7 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var favorite1Button: UIButton!
     @IBOutlet weak var favorite2Button: UIButton!
     @IBOutlet weak var favorite3Button: UIButton!
+    @IBOutlet weak var scaleButton: UIButton!
     
     var tableViewRuntimeHeight: CGFloat = 0
     
@@ -335,6 +338,33 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         return hasTraits(view: self.view, width: .regular, height: .regular) ? 30 : 25
     }
     
+    // MARK: scale
+    
+    @IBAction func selectScale(_ sender: Any) {
+        let alert = UIAlertController(title: "Select Scale", message: nil, preferredStyle: .alert)
+        for s in Scale.allScales() {
+            alert.addAction(UIAlertAction(title: Scale.toString(s), style: .default, handler: { (action) in
+                self.scale = s
+                self.fromTableView.reloadData()
+                self.toTableView.reloadData()
+                
+                if s == Scale.NONE {
+                    self.scaleButton.setTitle("Coloring: No Scale", for: .normal)
+                    self.scaleButton.setTitle("Coloring: No Scale", for: .selected)
+                } else {
+                    self.scaleButton.setTitle("Coloring: \(Scale.toString(s)) Scale", for: .normal)
+                    self.scaleButton.setTitle("Coloring: \(Scale.toString(s)) Scale", for: .selected)
+                }
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "Back", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = scaleButton
+        }
+    }
+    
     // MARK: table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -352,7 +382,7 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
             cell?.textLabel?.text = notes[(indexPath.row + 12 - (toInstrument?.key.rawValue)!) % notes.count]
         }
         
-        if indexPath.row % 2 == 0 {
+        if scale.contains(indexPath.row) {
             cell?.backgroundColor = tableColor1
         } else {
             cell?.backgroundColor = tableColor2
@@ -536,11 +566,74 @@ class Instrument: CustomStringConvertible {
     }
 }
 
+class Scale {
+    static let MAJOR = [0, 2, 4, 5, 7, 9, 11]
+    static let NATURAL_MINOR = [0, 2, 3, 5, 7, 8, 10]
+    static let HARMONIC_MINOR = [0, 2, 3, 5, 7, 8, 11]
+    static let MELODIC_MINOR = [0, 2, 3, 5, 7, 9, 11]
+    static let MAJOR_PENTATONIC = [0, 2, 4, 7, 9]
+    static let MINOR_PENTATONIC = [0, 3, 5, 7, 10]
+    static let MAJOR_BLUES = [0, 2, 3, 4, 7, 9]
+    static let MINOR_BLUES = [0, 3, 5, 6, 7, 10]
+    static let NONE = [0, 2, 4, 6, 8, 10]
+    
+    static func toString(_ scale: [Int]) -> String {
+        switch scale {
+        case MAJOR:
+            return "Major"
+        case NATURAL_MINOR:
+            return "Natural Minor"
+        case HARMONIC_MINOR:
+            return "Harmonic Minor"
+        case MELODIC_MINOR:
+            return "Melodic Minor"
+        case MAJOR_PENTATONIC:
+            return "Major Pentatonic"
+        case MINOR_PENTATONIC:
+            return "Minor Pentatonic"
+        case MAJOR_BLUES:
+            return "Major Blues"
+        case MINOR_BLUES:
+            return "Minor Blues"
+        case NONE:
+            return "None"
+        default:
+            return ""
+        }
+    }
+    
+    static func allScales() -> [[Int]] {
+        return [MAJOR, NATURAL_MINOR, HARMONIC_MINOR, MELODIC_MINOR, MAJOR_PENTATONIC, MINOR_PENTATONIC, MAJOR_BLUES, MINOR_BLUES, NONE]
+    }
+}
+
 func makeAdjustableFont(label: UILabel) {
     label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
     label.lineBreakMode = .byClipping
 }
+
+extension UIFont {
+
+    func withTraits(traits:UIFontDescriptor.SymbolicTraits...) -> UIFont {
+        let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits))!
+        return UIFont(descriptor: descriptor, size: 0)
+    }
+
+    func bold() -> UIFont {
+        return withTraits(traits: .traitBold)
+    }
+
+    func italic() -> UIFont {
+        return withTraits(traits: .traitItalic)
+    }
+
+    func boldItalic() -> UIFont {
+        return withTraits(traits: .traitBold, .traitItalic)
+    }
+
+}
+
 
 // MARK: hardware
 
