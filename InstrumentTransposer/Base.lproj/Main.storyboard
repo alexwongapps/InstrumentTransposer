@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +26,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="instrumentFromCell" id="P16-jH-buG">
-                                        <rect key="frame" x="0.0" y="28" width="145" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="145" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P16-jH-buG" id="0hQ-9X-7YH">
                                             <rect key="frame" x="0.0" y="0.0" width="145" height="43.5"/>
@@ -43,7 +44,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="instrumentToCell" id="NuJ-dg-5a4">
-                                        <rect key="frame" x="0.0" y="28" width="145" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="145" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NuJ-dg-5a4" id="9c2-JC-Xhe">
                                             <rect key="frame" x="0.0" y="0.0" width="145" height="43.5"/>
@@ -98,8 +99,19 @@
                                 <rect key="frame" x="15" y="78" width="290" height="91"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-ZN-3im">
-                                <rect key="frame" x="90" y="169" width="140" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-RU-BBD">
+                                <rect key="frame" x="256" y="169" width="34" height="33"/>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
+                                <state key="normal" title="Swap"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="swap:" destination="9pv-A4-QxB" eventType="touchUpInside" id="35f-pV-Iyj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-ZN-3im">
+                                <rect key="frame" x="30" y="169" width="140" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Coloring: Major Scale"/>
                                 <variation key="heightClass=regular-widthClass=regular">
@@ -112,7 +124,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ttx-VU-Nso">
                                 <rect key="frame" x="20" y="388" width="280" height="33"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pop-Ws-ppy">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pop-Ws-ppy">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="33"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                         <state key="normal" title="Save Favorite"/>
@@ -124,7 +136,7 @@
                                             <action selector="saveFavorite:" destination="9pv-A4-QxB" eventType="touchUpInside" id="KL7-O6-ih0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqT-3X-Fyt">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqT-3X-Fyt">
                                         <rect key="frame" x="100" y="0.0" width="80" height="33"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                         <state key="normal" title="Save Favorite"/>
@@ -135,7 +147,7 @@
                                             <action selector="saveFavorite:" destination="9pv-A4-QxB" eventType="touchUpInside" id="0xP-eg-c2S"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="In6-Iu-eM0">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="In6-Iu-eM0">
                                         <rect key="frame" x="200" y="0.0" width="80" height="33"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                         <state key="normal" title="Save Favorite"/>
@@ -188,8 +200,12 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Fod-ZN-3im" firstAttribute="leading" secondItem="mPv-bo-iEI" secondAttribute="leading" constant="15" id="0Of-TP-2fO">
+                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                            </constraint>
                             <constraint firstItem="mPv-bo-iEI" firstAttribute="leading" secondItem="4pJ-W6-adf" secondAttribute="leading" id="37k-Yt-Ymd"/>
                             <constraint firstItem="zfP-j9-tQI" firstAttribute="leading" secondItem="4pJ-W6-adf" secondAttribute="leading" id="4h7-dJ-vfE"/>
                             <constraint firstItem="YgX-RD-Pgs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6qr-RK-QbW"/>
@@ -205,10 +221,13 @@
                             <constraint firstItem="npo-6Q-Hf5" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="OaK-UB-Kkd"/>
                             <constraint firstItem="yqq-C5-P7j" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="38" id="PTk-tL-DJC"/>
                             <constraint firstItem="Ttx-VU-Nso" firstAttribute="top" secondItem="4vu-ds-ONj" secondAttribute="bottom" constant="10" id="Pew-Mw-gPp"/>
-                            <constraint firstItem="Fod-ZN-3im" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Px3-Yk-oy8"/>
                             <constraint firstItem="HFk-M1-Iet" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="SjV-dQ-Wyw"/>
+                            <constraint firstItem="5HZ-RU-BBD" firstAttribute="centerY" secondItem="Fod-ZN-3im" secondAttribute="centerY" id="UKZ-mF-HtN"/>
                             <constraint firstItem="YgX-RD-Pgs" firstAttribute="centerY" secondItem="4pJ-W6-adf" secondAttribute="centerY" id="aKq-bY-8yZ"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="1gd-sC-OQW" secondAttribute="trailing" constant="15" id="fIf-lV-HiO"/>
+                            <constraint firstItem="5HZ-RU-BBD" firstAttribute="trailing" secondItem="mPv-bo-iEI" secondAttribute="trailing" constant="-15" id="fcJ-Jr-WWt">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-30"/>
+                            </constraint>
                             <constraint firstItem="1gd-sC-OQW" firstAttribute="leading" secondItem="YgX-RD-Pgs" secondAttribute="trailing" constant="15" id="gEx-5t-aPs"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Ttx-VU-Nso" secondAttribute="trailing" constant="20" id="gad-Fi-pMl"/>
                             <constraint firstItem="yqq-C5-P7j" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="glT-ke-xID"/>
@@ -227,7 +246,6 @@
                             <constraint firstItem="4pJ-W6-adf" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="15" id="yx3-2k-I9c"/>
                             <constraint firstItem="yqq-C5-P7j" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="zzI-5L-0nO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Instrument" image="Instrument" id="acW-dT-cKf"/>
                     <connections>
@@ -240,6 +258,7 @@
                         <outlet property="helpView" destination="HFk-M1-Iet" id="Jgh-cl-4TX"/>
                         <outlet property="pickerViewsView" destination="mPv-bo-iEI" id="NQE-iY-6pN"/>
                         <outlet property="scaleButton" destination="Fod-ZN-3im" id="5Ca-lG-HX7"/>
+                        <outlet property="swapButton" destination="5HZ-RU-BBD" id="YcE-oI-HHK"/>
                         <outlet property="titleLabel" destination="yqq-C5-P7j" id="CJj-kH-NVB"/>
                         <outlet property="toLabel" destination="YgX-RD-Pgs" id="Ewr-oE-kkK"/>
                         <outlet property="toPickerView" destination="1gd-sC-OQW" id="3PF-gQ-UZR"/>
@@ -262,8 +281,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfE-1D-3gb">
-                                <rect key="frame" x="90" y="169" width="140" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3b-rG-C0C">
+                                <rect key="frame" x="256" y="169" width="34" height="33"/>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
+                                <state key="normal" title="Swap"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="swap:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="eNx-qe-yMv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfE-1D-3gb">
+                                <rect key="frame" x="30" y="169" width="140" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Coloring: Major Scale"/>
                                 <variation key="heightClass=regular-widthClass=regular">
@@ -278,7 +308,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="keyToCell" id="eOI-jC-gwQ">
-                                        <rect key="frame" x="0.0" y="28" width="145" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="145" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eOI-jC-gwQ" id="gCD-07-PUs">
                                             <rect key="frame" x="0.0" y="0.0" width="145" height="43.5"/>
@@ -296,7 +326,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="keyFromCell" id="hWF-ra-Cbp">
-                                        <rect key="frame" x="0.0" y="28" width="145" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="145" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hWF-ra-Cbp" id="gO7-CR-Cbb">
                                             <rect key="frame" x="0.0" y="0.0" width="145" height="43.5"/>
@@ -350,7 +380,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="88v-Qf-lpd">
                                 <rect key="frame" x="20" y="388" width="280" height="33"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F84-En-9tA">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F84-En-9tA">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="33"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                         <state key="normal" title="Save Favorite"/>
@@ -362,7 +392,7 @@
                                             <action selector="saveFavorite:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="YWo-Sk-eMo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-Ek-LUl">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-Ek-LUl">
                                         <rect key="frame" x="100" y="0.0" width="80" height="33"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                         <state key="normal" title="Save Favorite"/>
@@ -373,7 +403,7 @@
                                             <action selector="saveFavorite:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="QcR-kv-c7M"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-Bj-dDX">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-Bj-dDX">
                                         <rect key="frame" x="200" y="0.0" width="80" height="33"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                         <state key="normal" title="Save Favorite"/>
@@ -391,11 +421,15 @@
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gsT-52-hAs" firstAttribute="leading" secondItem="p05-bI-Di7" secondAttribute="leading" id="18Q-vN-D6O"/>
                             <constraint firstItem="6S7-od-8gD" firstAttribute="centerY" secondItem="p05-bI-Di7" secondAttribute="centerY" id="1eS-hj-hJP"/>
                             <constraint firstItem="88v-Qf-lpd" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" constant="-10" id="3mB-O6-5BS"/>
+                            <constraint firstItem="M3b-rG-C0C" firstAttribute="trailing" secondItem="oM5-Xi-mNX" secondAttribute="trailing" constant="-15" id="3pI-DH-jZq">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-30"/>
+                            </constraint>
                             <constraint firstItem="88v-Qf-lpd" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="4rP-SA-j3B"/>
                             <constraint firstItem="req-Kx-fCS" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="30" id="666-Jz-FjG"/>
                             <constraint firstItem="Kih-0v-yfH" firstAttribute="top" secondItem="gsT-52-hAs" secondAttribute="top" id="Cy1-PE-R0t"/>
@@ -403,16 +437,19 @@
                             <constraint firstItem="88v-Qf-lpd" firstAttribute="top" secondItem="Kih-0v-yfH" secondAttribute="bottom" constant="10" id="DNN-f6-HkO"/>
                             <constraint firstItem="Kih-0v-yfH" firstAttribute="leading" secondItem="6S7-od-8gD" secondAttribute="centerX" id="FIe-1K-d1G"/>
                             <constraint firstItem="6S7-od-8gD" firstAttribute="leading" secondItem="p05-bI-Di7" secondAttribute="trailing" constant="15" id="Ler-7f-TRd"/>
+                            <constraint firstItem="RfE-1D-3gb" firstAttribute="leading" secondItem="p05-bI-Di7" secondAttribute="leading" constant="15" id="Ng0-b5-Z7d">
+                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                            </constraint>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="88v-Qf-lpd" secondAttribute="trailing" constant="20" id="QBz-MK-jLw"/>
                             <constraint firstItem="p05-bI-Di7" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="15" id="TZz-2X-0zp"/>
                             <constraint firstItem="0Rm-Jv-Phk" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="UBS-gv-ao4"/>
                             <constraint firstItem="RfE-1D-3gb" firstAttribute="top" secondItem="p05-bI-Di7" secondAttribute="bottom" id="UgC-Mo-D3K"/>
                             <constraint firstItem="oM5-Xi-mNX" firstAttribute="leading" secondItem="6S7-od-8gD" secondAttribute="trailing" constant="15" id="V7p-yb-cys"/>
-                            <constraint firstItem="RfE-1D-3gb" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="aGr-W5-R3m"/>
                             <constraint firstItem="88v-Qf-lpd" firstAttribute="top" secondItem="gsT-52-hAs" secondAttribute="bottom" constant="10" id="ab5-Sb-06P"/>
                             <constraint firstItem="oM5-Xi-mNX" firstAttribute="centerY" secondItem="p05-bI-Di7" secondAttribute="centerY" id="dKS-tx-yCs"/>
                             <constraint firstItem="6S7-od-8gD" firstAttribute="centerX" secondItem="gsT-52-hAs" secondAttribute="trailing" id="dQd-cd-ZpM"/>
                             <constraint firstItem="req-Kx-fCS" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="eFR-aU-7ed"/>
+                            <constraint firstItem="M3b-rG-C0C" firstAttribute="centerY" secondItem="RfE-1D-3gb" secondAttribute="centerY" id="jRG-FD-OYR"/>
                             <constraint firstItem="p05-bI-Di7" firstAttribute="top" secondItem="req-Kx-fCS" secondAttribute="bottom" constant="12" id="lZM-TM-Nht"/>
                             <constraint firstItem="0Rm-Jv-Phk" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailing" id="nyc-QL-kDf"/>
                             <constraint firstItem="6S7-od-8gD" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="ohx-vH-Iqc"/>
@@ -421,7 +458,6 @@
                             <constraint firstItem="0Rm-Jv-Phk" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="vB7-LG-HzR"/>
                             <constraint firstItem="Kih-0v-yfH" firstAttribute="trailing" secondItem="oM5-Xi-mNX" secondAttribute="trailing" id="wfR-yM-xs7"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Key" image="Key" id="cPa-gy-q4n"/>
                     <connections>
@@ -500,7 +536,7 @@
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZP-ff-wif">
                                 <rect key="frame" x="40" y="180.5" width="240" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2wq-Qj-lHZ">
                                         <variation key="heightClass=regular-widthClass=regular" constant="120"/>
@@ -558,6 +594,7 @@
                                 </variation>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="QD0-E1-rWC"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eMa-fn-76T" firstAttribute="centerY" secondItem="UCh-bz-veV" secondAttribute="centerY" id="0VF-Gi-6io"/>
@@ -602,7 +639,6 @@
                             <constraint firstItem="ddh-8v-DMN" firstAttribute="leading" secondItem="QD0-E1-rWC" secondAttribute="leading" constant="30" id="tfS-NS-ly0"/>
                             <constraint firstItem="txY-xP-ifl" firstAttribute="bottom" secondItem="QD0-E1-rWC" secondAttribute="bottom" id="uyC-tc-Mur"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="QD0-E1-rWC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tuner" image="Tuning" selectedImage="Tuning" id="PKT-ph-UYm"/>
                     <connections>
@@ -645,7 +681,7 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ite-ML-buV">
                                 <rect key="frame" x="270" y="79.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8r-fe-Kcv">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8r-fe-Kcv">
                                 <rect key="frame" x="15" y="152.5" width="131" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Background Color 2"/>
@@ -656,7 +692,7 @@
                                     <action selector="changeColor:" destination="GMd-bz-xOt" eventType="touchUpInside" id="zBz-dC-j2Z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqt-8n-RjK">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqt-8n-RjK">
                                 <rect key="frame" x="15" y="190.5" width="89" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Table Color 1"/>
@@ -667,7 +703,7 @@
                                     <action selector="changeColor:" destination="GMd-bz-xOt" eventType="touchUpInside" id="FAU-2A-uNk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r27-Xb-S0A">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r27-Xb-S0A">
                                 <rect key="frame" x="15" y="228.5" width="89" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Table Color 2"/>
@@ -678,7 +714,7 @@
                                     <action selector="changeColor:" destination="GMd-bz-xOt" eventType="touchUpInside" id="LcK-Xk-fxv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2N-su-Ayv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2N-su-Ayv">
                                 <rect key="frame" x="15" y="114.5" width="131" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Background Color 1"/>
@@ -701,7 +737,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="kf3-vm-Lzx">
                                 <rect key="frame" x="15" y="270.5" width="208" height="43"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1J-zO-0pU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1J-zO-0pU">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="43"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="25"/>
                                         <state key="normal" title="Get PRO"/>
@@ -712,7 +748,7 @@
                                             <action selector="getPRO:" destination="GMd-bz-xOt" eventType="touchUpInside" id="K4L-s0-Wvl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK9-Mt-vFx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK9-Mt-vFx">
                                         <rect key="frame" x="135" y="0.0" width="73" height="43"/>
                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="25"/>
                                         <state key="normal" title="Restore"/>
@@ -725,7 +761,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqz-KO-yzo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqz-KO-yzo">
                                 <rect key="frame" x="15" y="317" width="185" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Manage Custom Instruments"/>
@@ -736,7 +772,7 @@
                                     <action selector="customInstruments:" destination="GMd-bz-xOt" eventType="touchUpInside" id="O5z-SN-ijl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abd-a5-bRH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abd-a5-bRH">
                                 <rect key="frame" x="15" y="355" width="99" height="33"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="17"/>
                                 <state key="normal" title="Delete Favorite"/>
@@ -757,6 +793,7 @@
                                 </variation>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="RE0-cu-I22"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RE0-cu-I22" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jqz-KO-yzo" secondAttribute="trailing" constant="120" id="1JA-IZ-u3D"/>
@@ -794,7 +831,6 @@
                             <constraint firstItem="94D-CS-kU9" firstAttribute="leading" secondItem="vKL-TQ-RUj" secondAttribute="leading" id="xdo-M3-4KL"/>
                             <constraint firstItem="RE0-cu-I22" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AMd-EU-9Y8" secondAttribute="trailing" id="yJm-ee-ppF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="RE0-cu-I22"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="rap-ae-mCN"/>
                     <connections>
@@ -831,7 +867,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customInstrumentCell" id="4Cg-0H-2Zt">
-                                        <rect key="frame" x="0.0" y="28" width="290" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="290" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Cg-0H-2Zt" id="kW0-SU-Qkw">
                                             <rect key="frame" x="0.0" y="0.0" width="290" height="43.5"/>
@@ -859,7 +895,7 @@
                                     <outlet property="delegate" destination="xSh-Ag-ZC1" id="C1e-Tk-STw"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwm-gt-RBc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwm-gt-RBc">
                                 <rect key="frame" x="73" y="138" width="174" height="43"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="25"/>
                                 <state key="normal" title="＋Add Instrument"/>
@@ -868,6 +904,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="xgj-Ij-AIA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Brh-6H-dy3" firstAttribute="leading" secondItem="xgj-Ij-AIA" secondAttribute="leading" constant="20" id="3AM-vr-7JI"/>
@@ -887,7 +924,6 @@
                             <constraint firstItem="hlz-jz-OsC" firstAttribute="leading" secondItem="5rN-MJ-EJE" secondAttribute="centerX" constant="30" id="oHt-Ww-zr4"/>
                             <constraint firstItem="xgj-Ij-AIA" firstAttribute="trailing" secondItem="lv2-mX-te1" secondAttribute="trailing" constant="15" id="zka-NW-g2Q"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="xgj-Ij-AIA"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fwo-lp-TU1"/>
                     <connections>
@@ -957,7 +993,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="colorCell" id="UWI-iH-bvY">
-                                        <rect key="frame" x="0.0" y="28" width="125" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="125" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UWI-iH-bvY" id="Eic-5k-Z2Y">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="43.5"/>
@@ -985,7 +1021,7 @@
                                     <action selector="colorChanged:" destination="bYc-ks-wCY" eventType="valueChanged" id="mv5-PX-7q7"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro5-I3-0xx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro5-I3-0xx">
                                 <rect key="frame" x="185" y="368" width="90" height="43"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="25"/>
                                 <state key="normal" title="Set Color"/>
@@ -997,6 +1033,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="wBb-wL-ISM"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vjd-A7-uTo" firstAttribute="top" secondItem="tVX-s4-WYi" secondAttribute="bottom" constant="15" id="0Se-xO-5qF"/>
@@ -1027,7 +1064,6 @@
                             <constraint firstItem="OT1-UT-CVW" firstAttribute="top" secondItem="XSP-xb-9xe" secondAttribute="bottom" constant="12" id="vdt-bm-Wvy"/>
                             <constraint firstItem="tVX-s4-WYi" firstAttribute="centerX" secondItem="PgL-iX-7QD" secondAttribute="centerX" id="zkx-4O-srH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="wBb-wL-ISM"/>
                     </view>
                     <connections>
                         <outlet property="blueSlider" destination="F9r-HY-1tB" id="GOD-0d-IOu"/>
@@ -1068,5 +1104,8 @@
         <image name="Key" width="19" height="30"/>
         <image name="Settings" width="25" height="25"/>
         <image name="Tuning" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

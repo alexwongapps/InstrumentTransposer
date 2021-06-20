@@ -63,11 +63,7 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         // other
         
-        fromPickerView.selectRow(0, inComponent: 0, animated: true)
-        toPickerView.selectRow(0, inComponent: 0, animated: true)
-        
-        fromKey = Key(rawValue: 0)
-        toKey = Key(rawValue: 0)
+        selectRows(from: 0, to: 0)
         
         toLabel.font = UIFont(name: appFont, size: smallDevice() ? 17 : 25)
     }
@@ -178,6 +174,14 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    // MARK: swap
+    
+    @IBAction func swap(_ sender: Any) {
+        let left = fromPickerView.selectedRow(inComponent: 0)
+        let right = toPickerView.selectedRow(inComponent: 0)
+        selectRows(from: right, to: left)
+    }
+    
     // MARK: table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -232,13 +236,17 @@ class KeyViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         } else {
             let from = notes.firstIndex(of: UserDefaults.standard.string(forKey: "key\(sender.tag + 1)From")!)!
             let to = notes.firstIndex(of: UserDefaults.standard.string(forKey: "key\(sender.tag + 1)To")!)!
-            fromPickerView.selectRow(from, inComponent: 0, animated: true)
-            toPickerView.selectRow(to, inComponent: 0, animated: true)
-            fromKey = Key(rawValue: from)
-            toKey = Key(rawValue: to)
-            fromTableView.reloadData()
-            toTableView.reloadData()
+            selectRows(from: from, to: to)
         }
+    }
+    
+    func selectRows(from: Int, to: Int) {
+        fromPickerView.selectRow(from, inComponent: 0, animated: true)
+        toPickerView.selectRow(to, inComponent: 0, animated: true)
+        fromKey = Key(rawValue: from)
+        toKey = Key(rawValue: to)
+        fromTableView.reloadData()
+        toTableView.reloadData()
     }
     
     func setBackground() -> Bool {

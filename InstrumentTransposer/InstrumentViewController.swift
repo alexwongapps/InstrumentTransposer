@@ -96,6 +96,7 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var favorite2Button: UIButton!
     @IBOutlet weak var favorite3Button: UIButton!
     @IBOutlet weak var scaleButton: UIButton!
+    @IBOutlet weak var swapButton: UIButton!
     
     var tableViewRuntimeHeight: CGFloat = 0
     
@@ -194,11 +195,7 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         fromTableView.reloadData()
         toTableView.reloadData()
         
-        fromPickerView.selectRow(0, inComponent: 0, animated: true)
-        toPickerView.selectRow(0, inComponent: 0, animated: true)
-        
-        fromInstrument = instruments[0]
-        toInstrument = instruments[0]
+        selectRows(from: 0, to: 0)
         
         toLabel.font = UIFont(name: appFont, size: smallDevice() ? 17 : 25)
     }
@@ -365,6 +362,14 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    // MARK: swap
+    
+    @IBAction func swap(_ sender: Any) {
+        let left = fromPickerView.selectedRow(inComponent: 0)
+        let right = toPickerView.selectedRow(inComponent: 0)
+        selectRows(from: right, to: left)
+    }
+    
     // MARK: table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -498,13 +503,17 @@ class InstrumentViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             let from = instruments.firstIndex { $0.description == UserDefaults.standard.string(forKey: "instrument\(sender.tag + 1)From")! }
             let to = instruments.firstIndex { $0.description == UserDefaults.standard.string(forKey: "instrument\(sender.tag + 1)To")! }
-            fromPickerView.selectRow(from!, inComponent: 0, animated: true)
-            toPickerView.selectRow(to!, inComponent: 0, animated: true)
-            fromInstrument = instruments[from!]
-            toInstrument = instruments[to!]
-            fromTableView.reloadData()
-            toTableView.reloadData()
+            selectRows(from: from!, to: to!)
         }
+    }
+    
+    func selectRows(from: Int, to: Int) {
+        fromPickerView.selectRow(from, inComponent: 0, animated: true)
+        toPickerView.selectRow(to, inComponent: 0, animated: true)
+        fromInstrument = instruments[from]
+        toInstrument = instruments[to]
+        fromTableView.reloadData()
+        toTableView.reloadData()
     }
     
     // defaults
